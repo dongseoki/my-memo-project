@@ -1,5 +1,18 @@
 .App {
-  text-align: center;
+  display: flex;
+  min-height: 100vh;
+}
+
+.Side {
+  width: 30%;
+  background-color: #87ceeb; /* 하늘색 */
+  padding: 20px;
+}
+
+.Main {
+  width: 70%;
+  background-color: #e0f7e0; /* 연한 초록색 */
+  padding: 20px;
 }
 
 .App-logo {
