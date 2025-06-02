@@ -1,7 +1,7 @@
 import React from "react";
 
-function MemoTitleItem() {
-  return <div className="MemoTitleItem">MemoTitleItem</div>;
+function MemoTitleItem({ title }) {
+  return <div className="MemoTitleItem">{title}</div>;
 }
 
 export default MemoTitleItem;

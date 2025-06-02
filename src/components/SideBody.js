@@ -1,10 +1,10 @@
 import React from "react";
 import MemoTitleList from "./MemoTitleList";
 
-function SideBody() {
+function SideBody({ memos }) {
   return (
     <div className="SideBody">
-      <MemoTitleList />
+      <MemoTitleList memos={memos} />
     </div>
   );
 }

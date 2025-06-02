@@ -2,12 +2,12 @@ import React from "react";
 import SideHeader from "./SideHeader";
 import SideBody from "./SideBody";
 
-function Side() {
+function Side({ memos }) {
   return (
     <div className="Side">
       Side
       <SideHeader />
-      <SideBody />
+      <SideBody memos={memos} />
     </div>
   );
 }
