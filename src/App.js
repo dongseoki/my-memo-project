@@ -24,11 +24,18 @@ function App() {
       updatedAt: 1641225309267,
     },
   ]);
+  const [selectedMemoIdx, setSelectedMemoIdx] = useState(0);
+  const selectedMemo = memos[selectedMemoIdx];
+
   return (
     <div className="App">
       App
-      <Side memos={memos} />
-      <Main />
+      <Side
+        memos={memos}
+        selectedMemoIdx={selectedMemoIdx}
+        setSelectedMemoIdx={setSelectedMemoIdx}
+      />
+      <Main selectedMemo={selectedMemo} />
     </div>
   );
 }

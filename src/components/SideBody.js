@@ -1,10 +1,14 @@
 import React from "react";
 import MemoTitleList from "./MemoTitleList";
 
-function SideBody({ memos }) {
+function SideBody({ memos, selectedMemoIdx, setSelectedMemoIdx }) {
   return (
     <div className="SideBody">
-      <MemoTitleList memos={memos} />
+      <MemoTitleList
+        memos={memos}
+        selectedMemoIdx={selectedMemoIdx}
+        setSelectedMemoIdx={setSelectedMemoIdx}
+      />
     </div>
   );
 }
