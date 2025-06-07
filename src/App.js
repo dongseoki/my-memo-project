@@ -26,6 +26,11 @@ function App() {
   ]);
   const [selectedMemoIdx, setSelectedMemoIdx] = useState(0);
   const selectedMemo = memos[selectedMemoIdx];
+  const editMemo = (idx, title, content) => {
+    const newMemos = [...memos];
+    newMemos[idx] = { ...newMemos[idx], title, content };
+    setMemos(newMemos);
+  };
 
   return (
     <div className="App">
@@ -35,7 +40,11 @@ function App() {
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
       />
-      <Main selectedMemo={selectedMemo} />
+      <Main
+        selectedMemo={selectedMemo}
+        editMemo={editMemo}
+        selectedMemoIdx={selectedMemoIdx}
+      />
     </div>
   );
 }
