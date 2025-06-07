@@ -1,3 +1,13 @@
+# 실행 방법.
+
+```sh
+nvm install 22.16.0
+nvm use 22.16.0
+npm install
+npm start
+
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
