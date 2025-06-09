@@ -2,19 +2,18 @@ import React from "react";
 import { useState } from "react";
 
 function Main({ selectedMemo, editMemo, selectedMemoIdx }) {
-  const [title, setTitle] = useState(selectedMemo.title);
-  const [content, setContent] = useState(selectedMemo.content);
+  console.log("Main : ", selectedMemo);
 
   const handleTitleChange = (e) => {
     console.log("handleTitleChange : ", e.target.value);
-    setTitle(e.target.value);
-    editMemo(selectedMemoIdx, e.target.value, content);
+    // setTitle(e.target.value);
+    editMemo(selectedMemoIdx, e.target.value, selectedMemo.content);
   };
 
   const handleContentChange = (e) => {
     console.log("handleContentChange : ", e.target.value);
-    setContent(e.target.value);
-    editMemo(selectedMemoIdx, title, e.target.value);
+    // setContent(e.target.value);
+    editMemo(selectedMemoIdx, selectedMemo.title, e.target.value);
   };
 
   return (
@@ -23,14 +22,14 @@ function Main({ selectedMemo, editMemo, selectedMemoIdx }) {
       <div className="Title">
         <input
           className="MainMemo__Title"
-          value={title}
+          value={selectedMemo.title}
           onChange={handleTitleChange}
         />
       </div>
       <div className="Content">
         <textarea
           className="MainMemo__Content"
-          value={content}
+          value={selectedMemo.content}
           onChange={handleContentChange}
         />
       </div>
