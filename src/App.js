@@ -31,6 +31,19 @@ function App() {
     newMemos[idx] = { ...newMemos[idx], title, content };
     setMemos(newMemos);
   };
+  const addMemo = () => {
+    const newMemos = [
+      ...memos,
+      {
+        title: "Untitled",
+        content: "",
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      },
+    ];
+    setMemos(newMemos);
+    setSelectedMemoIdx(newMemos.length - 1);
+  };
 
   return (
     <div className="App">
@@ -39,6 +52,7 @@ function App() {
         memos={memos}
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
+        addMemo={addMemo}
       />
       <Main
         selectedMemo={selectedMemo}

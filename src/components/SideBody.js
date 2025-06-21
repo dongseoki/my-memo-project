@@ -1,7 +1,7 @@
 import React from "react";
 import MemoTitleList from "./MemoTitleList";
 
-function SideBody({ memos, selectedMemoIdx, setSelectedMemoIdx }) {
+function SideBody({ memos, selectedMemoIdx, setSelectedMemoIdx, addMemo }) {
   return (
     <div className="SideBody">
       <MemoTitleList
@@ -9,6 +9,9 @@ function SideBody({ memos, selectedMemoIdx, setSelectedMemoIdx }) {
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
       />
+      <button className="add-memo-button" onClick={addMemo}>
+        +
+      </button>
     </div>
   );
 }
