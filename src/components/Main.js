@@ -4,11 +4,6 @@ import { useState, useEffect } from "react";
 function Main({ selectedMemo, editMemo, selectedMemoIdx }) {
   console.log("Main : ", selectedMemo);
 
-  useEffect(() => {
-    setTitle(selectedMemo.title);
-    setContent(selectedMemo.content);
-  }, [selectedMemo]);
-
   const handleTitleChange = (e) => {
     console.log("handleTitleChange : ", e.target.value);
     // setTitle(e.target.value);
