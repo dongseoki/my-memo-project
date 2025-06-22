@@ -47,16 +47,20 @@ function App() {
   const deleteMemo = (idx) => {
     const newMemos = [...memos];
     newMemos.splice(idx, 1);
-    setMemos(newMemos);
-    if (selectedMemoIdx === idx) {
-      setSelectedMemoIdx(0);
-    }
+
     if (newMemos.length === 0) {
+      setMemos([]);
       setSelectedMemoIdx(null);
+      return;
     }
-    if (newMemos.length <= selectedMemoIdx) {
+
+    if (idx === selectedMemoIdx) {
+      setSelectedMemoIdx(0);
+    } else if (idx < selectedMemoIdx) {
       setSelectedMemoIdx(selectedMemoIdx - 1);
     }
+
+    setMemos(newMemos);
   };
 
   return (

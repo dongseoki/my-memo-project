@@ -19,20 +19,28 @@ function Main({ selectedMemo, editMemo, selectedMemoIdx }) {
   return (
     <div className="Main">
       Main
-      <div className="Title">
-        <input
-          className="MainMemo__Title"
-          value={selectedMemo.title}
-          onChange={handleTitleChange}
-        />
-      </div>
-      <div className="Content">
-        <textarea
-          className="MainMemo__Content"
-          value={selectedMemo.content}
-          onChange={handleContentChange}
-        />
-      </div>
+      {selectedMemo ? (
+        <>
+          <div className="Title">
+            <input
+              className="MainMemo__Title"
+              value={selectedMemo.title}
+              onChange={handleTitleChange}
+            />
+          </div>
+          <div className="Content">
+            <textarea
+              className="MainMemo__Content"
+              value={selectedMemo.content}
+              onChange={handleContentChange}
+            />
+          </div>
+        </>
+      ) : (
+        <div className="no-memo-selected">
+          메모가 없습니다. 새로운 메모를 생성해 주세요.
+        </div>
+      )}
     </div>
   );
 }
