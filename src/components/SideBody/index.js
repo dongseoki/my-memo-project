@@ -1,8 +1,7 @@
 import React from "react";
-import SideHeader from "./SideHeader";
-import SideBody from "./SideBody";
+import MemoTitleList from "../MemoTitleList";
 
-function Side({
+function SideBody({
   memos,
   selectedMemoIdx,
   setSelectedMemoIdx,
@@ -10,18 +9,18 @@ function Side({
   deleteMemo,
 }) {
   return (
-    <div className="Side">
-      Side
-      <SideHeader />
-      <SideBody
+    <div className="SideBody">
+      <MemoTitleList
         memos={memos}
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
-        addMemo={addMemo}
         deleteMemo={deleteMemo}
       />
+      <button className="add-memo-button" onClick={addMemo}>
+        +
+      </button>
     </div>
   );
 }
 
-export default Side;
+export default SideBody;

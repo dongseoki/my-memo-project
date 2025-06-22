@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import MemoTitleItem from "./MemoTitleItem";
+import MemoTitleItem from "../MemoTitleItem";
 
 function MemoTitleList({
   memos,
