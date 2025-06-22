@@ -2,7 +2,12 @@ import React from "react";
 import { useState } from "react";
 import MemoTitleItem from "./MemoTitleItem";
 
-function MemoTitleList({ memos, selectedMemoIdx, setSelectedMemoIdx }) {
+function MemoTitleList({
+  memos,
+  selectedMemoIdx,
+  setSelectedMemoIdx,
+  deleteMemo,
+}) {
   const handleMemoTitleClick = (idx) => {
     setSelectedMemoIdx(idx);
   };
@@ -13,7 +18,8 @@ function MemoTitleList({ memos, selectedMemoIdx, setSelectedMemoIdx }) {
           key={index}
           title={memo.title}
           isSelected={selectedMemoIdx === index}
-          onClick={() => handleMemoTitleClick(index)}
+          onMemoTitleClick={() => handleMemoTitleClick(index)}
+          onDeleteMemoClick={() => deleteMemo(index)}
         />
       ))}
     </div>

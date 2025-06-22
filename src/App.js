@@ -44,6 +44,20 @@ function App() {
     setMemos(newMemos);
     setSelectedMemoIdx(newMemos.length - 1);
   };
+  const deleteMemo = (idx) => {
+    const newMemos = [...memos];
+    newMemos.splice(idx, 1);
+    setMemos(newMemos);
+    if (selectedMemoIdx === idx) {
+      setSelectedMemoIdx(0);
+    }
+    if (newMemos.length === 0) {
+      setSelectedMemoIdx(null);
+    }
+    if (newMemos.length <= selectedMemoIdx) {
+      setSelectedMemoIdx(selectedMemoIdx - 1);
+    }
+  };
 
   return (
     <div className="App">
@@ -53,6 +67,7 @@ function App() {
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
         addMemo={addMemo}
+        deleteMemo={deleteMemo}
       />
       <Main
         selectedMemo={selectedMemo}

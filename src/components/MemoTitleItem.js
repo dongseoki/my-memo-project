@@ -7,14 +7,22 @@ import React from "react";
  * @param {boolean} props.isSelected - 메모가 선택되었는지 여부
  * @returns {JSX.Element} 메모 제목을 표시하는 div 요소
  */
-function MemoTitleItem({ title, isSelected, onClick }) {
+function MemoTitleItem({
+  title,
+  isSelected,
+  onMemoTitleClick,
+  onDeleteMemoClick,
+}) {
   console.debug("MemoTitleItem : ", title, isSelected);
   return (
-    <div
-      className={`MemoTitleItem ${isSelected ? "selected" : ""}`}
-      onClick={onClick}
-    >
-      {title}
+    <div className="MemoTitleItemWrapper">
+      <div
+        className={`MemoTitleItem ${isSelected ? "selected" : ""}`}
+        onClick={onMemoTitleClick}
+      >
+        {title}
+      </div>
+      <button onClick={onDeleteMemoClick}>삭제</button>
     </div>
   );
 }

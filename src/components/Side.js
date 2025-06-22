@@ -2,7 +2,13 @@ import React from "react";
 import SideHeader from "./SideHeader";
 import SideBody from "./SideBody";
 
-function Side({ memos, selectedMemoIdx, setSelectedMemoIdx, addMemo }) {
+function Side({
+  memos,
+  selectedMemoIdx,
+  setSelectedMemoIdx,
+  addMemo,
+  deleteMemo,
+}) {
   return (
     <div className="Side">
       Side
@@ -12,6 +18,7 @@ function Side({ memos, selectedMemoIdx, setSelectedMemoIdx, addMemo }) {
         selectedMemoIdx={selectedMemoIdx}
         setSelectedMemoIdx={setSelectedMemoIdx}
         addMemo={addMemo}
+        deleteMemo={deleteMemo}
       />
     </div>
   );
