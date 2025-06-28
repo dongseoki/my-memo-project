@@ -1,29 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Side from "./components/Side";
 import Main from "./components/Main";
+import {
+  loadMemosFromStorage,
+  saveMemosToStorage,
+} from "./storage/localStorage";
 
 function App() {
-  const [memos, setMemos] = useState([
-    {
-      title: "Memo 1",
-      content: "This is memo 1",
-      createdAt: 1641225302265,
-      updatedAt: 1641225302265,
-    },
-    {
-      title: "Memo 2",
-      content: "This is memo 2",
-      createdAt: 1641225309267,
-      updatedAt: 1641225309267,
-    },
-    {
-      title: "Memo 3",
-      content: "This is memo 3",
-      createdAt: 1641225309267,
-      updatedAt: 1641225309267,
-    },
-  ]);
+  // 최초 렌더링 시 localStorage에서 불러오거나, 없으면 기본값 사용
+  const [memos, setMemos] = useState(() => {
+    const stored = loadMemosFromStorage();
+    if (stored && Array.isArray(stored) && stored.length > 0) {
+      return stored;
+    }
+    return [
+      {
+        title: "Memo 1",
+        content: "This is memo 1",
+        createdAt: 1641225302265,
+        updatedAt: 1641225302265,
+      },
+      {
+        title: "Memo 2",
+        content: "This is memo 2",
+        createdAt: 1641225309267,
+        updatedAt: 1641225309267,
+      },
+      {
+        title: "Memo 3",
+        content: "This is memo 3",
+        createdAt: 1641225309267,
+        updatedAt: 1641225309267,
+      },
+    ];
+  });
   const [selectedMemoIdx, setSelectedMemoIdx] = useState(0);
   const selectedMemo = memos[selectedMemoIdx];
   const editMemo = (idx, title, content) => {
@@ -62,6 +73,11 @@ function App() {
 
     setMemos(newMemos);
   };
+
+  // memos가 변경될 때마다 localStorage에 저장
+  useEffect(() => {
+    saveMemosToStorage(memos);
+  }, [memos]);
 
   return (
     <div className="App">
